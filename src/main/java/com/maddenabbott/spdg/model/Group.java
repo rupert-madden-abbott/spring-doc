@@ -6,9 +6,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Group {
-  private String name;
-  private String type;
-  private String description;
-  private String sourceType;
-  private String sourceMethod;
+    private String name;
+    private String type;
+    private String description;
+    private String sourceType;
+    private String sourceMethod;
 }

@@ -1,0 +1,66 @@
+{
+  "groups": [
+    {
+      "name": "webber.security",
+      "type": "com.maddenabbott.webber.security.WebberSecurityProperties",
+      "sourceType": "com.maddenabbott.webber.security.WebberSecurityProperties"
+    },
+    {
+      "name": "webber.security.switchuser",
+      "type": "com.maddenabbott.webber.switchuser.SwitchUserProperties",
+      "sourceType": "com.maddenabbott.webber.switchuser.SwitchUserProperties"
+    },
+    {
+      "name": "webber.view",
+      "type": "com.maddenabbott.webber.view.ViewProperties",
+      "sourceType": "com.maddenabbott.webber.view.ViewProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "webber.security.required-roles",
+      "type": "java.lang.String[]",
+      "description": "This is the role that a user is required to have in order to access any page by default. The rule that applies this requirement will have the lowest precedence so applications may increase or decrease the security for particular URLs as they wish. The default value is \"USER\" which is applied automatically to every account that authenticates via SSO. Therefore, if you do not wish anybody with an SSO account to be able to access your application, you will need to change this to something else, and ensure that select accounts are given this role.",
+      "sourceType": "com.maddenabbott.webber.security.WebberSecurityProperties"
+    },
+    {
+      "name": "webber.security.secure-home-page",
+      "type": "java.lang.Boolean",
+      "description": "By default, the home page, '\/', will be left unsecured meaning that anybody can access it, without having to login. By setting this to true, the home page will instead require a login and will also require the same set of roles for other secured pages. See {@link #requiredRoles}",
+      "sourceType": "com.maddenabbott.webber.security.WebberSecurityProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "webber.security.switchuser.roles",
+      "type": "java.lang.String[]",
+      "description": "This is an array of authorities of which any will allow a user to impersonate other users. This defaults to { Roles.ADMINISTRATOR }. Note that Spring Security's \"ROLE_\" prefix, will be automatically prepended.",
+      "sourceType": "com.maddenabbott.webber.switchuser.SwitchUserProperties"
+    },
+    {
+      "name": "webber.security.switchuser.success-path",
+      "type": "java.lang.String",
+      "description": "This is the domain relative path that will be redirected to after a user successfully impersonates another user. It defaults to \"\/\". It is your responsibility to ensure that your application has a controller that can handle this path. Note that if this path is not accessible by the new user, then you will get an authorisation failure.",
+      "sourceType": "com.maddenabbott.webber.switchuser.SwitchUserProperties",
+      "defaultValue": "\/"
+    },
+    {
+      "name": "webber.view.deprecated-layout",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.maddenabbott.webber.view.ViewProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "webber.view.navbar-expand-breakpoint",
+      "type": "java.lang.String",
+      "sourceType": "com.maddenabbott.webber.view.ViewProperties",
+      "defaultValue": "navbar-expand-md"
+    },
+    {
+      "name": "webber.view.webber-deprecated-layout",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.maddenabbott.webber.view.ViewProperties",
+      "defaultValue": true
+    }
+  ],
+  "hints": []
+}

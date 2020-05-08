@@ -1,6 +1,7 @@
 package com.maddenabbott.spdg;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.maddenabbott.spdg.model.Metadata;
 import com.maddenabbott.spdg.util.PathUtils;
@@ -12,6 +13,12 @@ public class Generator {
   private final ObjectMapper mapper;
 
   private final MetadataView view;
+
+  public static Generator getDefault() {
+    ObjectMapper mapper = new ObjectMapper()
+            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+    return new Generator(mapper, new MarkdownMetadataView());
+  }
 
   public Generator(final ObjectMapper mapper, final MetadataView view) {
     this.mapper = mapper;

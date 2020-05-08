@@ -44,9 +44,4 @@ public class MarkdownMetadataView implements MetadataView {
                 .collect(Collectors.joining("\n")));
         return stringBuilder.toString();
     }
-
-    @Override
-    public String fileName() {
-        return "CONFIG.MD";
-    }
 }

@@ -16,7 +16,8 @@ class GeneratorTest {
 
     @Test
     public void shouldGenerateDocs() {
-        String expected = PathUtils.read(Paths.get("src/test/resources/CONFIG.MD"));
+        String expected = PathUtils.read(Paths.get("src/test/resources/CONFIG.MD"))
+                .replace("\r\n", "\n");
 
         String actual = generator.generate("src/test/resources/spring-configuration-metadata.json");
 

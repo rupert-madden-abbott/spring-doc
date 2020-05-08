@@ -8,7 +8,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class GeneratorAutoConfiguration {
     @Bean
-    public Generator generator(final ObjectMapper objectMapper, final MetadataView view) {
+    public Generator generator(
+            //Suppression due to https://youtrack.jetbrains.com/issue/IDEA-240470
+            @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection") final ObjectMapper objectMapper,
+            final MetadataView view
+    ) {
         return new Generator(objectMapper, view);
     }
 

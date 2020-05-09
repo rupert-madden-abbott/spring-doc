@@ -13,4 +13,32 @@
 
     <artifactId>spring-doc-maven-plugin</artifactId>
     <name>Spring Doc Maven Plugin</name>
+    <packaging>maven-plugin</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.madden-abbott</groupId>
+            <artifactId>spring-doc-generator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-plugin-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugin-tools</groupId>
+            <artifactId>maven-plugin-annotations</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-plugin-plugin</artifactId>
+                <version>3.6.0</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>

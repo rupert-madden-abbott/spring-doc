@@ -3,22 +3,64 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
         http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <groupId>org.springframework.boot</groupId>
-    <version>2.2.6.RELEASE</version>
-  </parent>
+    <parent>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <version>2.2.6.RELEASE</version>
+    </parent>
 
-  <groupId>com.madden-abbott</groupId>
-  <artifactId>spring-doc</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
-  <name>Spring Doc</name>
-  <packaging>pom</packaging>
+    <groupId>com.madden-abbott</groupId>
+    <artifactId>spring-doc</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>Spring Doc</name>
+    <packaging>pom</packaging>
 
-  <modules>
-    <module>spring-doc-generator</module>
-    <module>spring-doc-maven-plugin</module>
-  </modules>
+    <properties>
+        <maven-plugin-api.version>3.0</maven-plugin-api.version>
+        <maven-plugin-annotations.version>3.4</maven-plugin-annotations.version>
+        <spring-doc.version>1.0.0-SNAPSHOT</spring-doc.version>
+    </properties>
+
+    <modules>
+        <module>spring-doc-generator</module>
+        <module>spring-doc-maven-plugin</module>
+        <module>spring-doc-maven-plugin-test</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.madden-abbott</groupId>
+                <artifactId>spring-doc-generator</artifactId>
+                <version>${spring-doc.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.maven</groupId>
+                <artifactId>maven-plugin-api</artifactId>
+                <version>${maven-plugin-api.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.maven.plugin-tools</groupId>
+                <artifactId>maven-plugin-annotations</artifactId>
+                <version>${maven-plugin-annotations.version}</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.madden-abbott</groupId>
+                    <artifactId>spring-doc-maven-plugin</artifactId>
+                    <version>${spring-doc.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>

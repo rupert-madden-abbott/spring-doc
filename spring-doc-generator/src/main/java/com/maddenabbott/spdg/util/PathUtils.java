@@ -13,4 +13,12 @@ public class PathUtils {
             throw new UncheckedIOException(e);
         }
     }
+
+    public static void write(final Path path, String contents) {
+        try {
+            Files.write(path, contents.getBytes());
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
+    }
 }

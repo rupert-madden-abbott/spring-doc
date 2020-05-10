@@ -19,4 +19,3 @@ jobs:
           gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
           nexus_username: ${{ secrets.MAVEN_USERNAME }}
           nexus_password: ${{ secrets.MAVEN_PASSWORD }}
-          maven_args: -X

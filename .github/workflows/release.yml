@@ -13,7 +13,7 @@ jobs:
         with:
           java-version: 1.8
       - name: Deploy to Maven Central
-        uses: rupert-madden-abbott/action-maven-publish@v1
+        uses: rupert-madden-abbott/action-maven-publish@master
         with:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
           gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
